@@ -19,8 +19,9 @@
     "react:start": "react-scripts start",
     "react:build": "react-scripts build",
     "build": "npm run react:build && npm run electron:build",
-    "electron:start": "wait-on http://localhost:3000 && electron ./public/electron.js",
-    "electron:build": "electron-builder -w"
+    "electron:start": "wait-on http://localhost:3000 && nodemon --watch public/electron.js --exec \"electron .\"",
+    "electron:build": "electron-builder -w",
+    "electron:dev": "nodemon --watch public/electron.js --exec \"electron .\""
   },
   "eslintConfig": {
     "extends": [
@@ -57,6 +58,7 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "electron": "^23.1.1",
-    "electron-builder": "^23.6.0"
+    "electron-builder": "^23.6.0",
+    "nodemon": "^2.0.20"
   }
 }
